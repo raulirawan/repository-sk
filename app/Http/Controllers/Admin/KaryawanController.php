@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Unit;
 use App\User;
 use App\Jabatan;
 use Illuminate\Http\Request;
@@ -29,7 +30,8 @@ class KaryawanController extends Controller
     public function create()
     {
         $jabatan = Jabatan::all();
-        return view('admin.karyawan.create', compact('jabatan'));
+        $unit = Unit::all();
+        return view('admin.karyawan.create', compact('jabatan', 'unit'));
     }
 
     /**
@@ -45,6 +47,7 @@ class KaryawanController extends Controller
             'email' => 'required|string|unique:users',
             'nip' => 'required|numeric',
             'jabatan_id' => 'required',
+            'unit_id' => 'required',
             'tanggal_lahir' => 'required|date',
             'tempat_lahir' => 'required|string',
             'alamat' => 'required|string',
@@ -88,8 +91,9 @@ class KaryawanController extends Controller
     public function edit($id)
     {
         $jabatan = Jabatan::all();
+        $unit = Unit::all();
         $item = User::findOrFail($id);
-        return view('admin.karyawan.edit', compact('item', 'jabatan'));
+        return view('admin.karyawan.edit', compact('item', 'jabatan','unit'));
     }
 
     /**
@@ -105,6 +109,7 @@ class KaryawanController extends Controller
             'name' => 'required|string',
             'nip' => 'required|numeric',
             'jabatan_id' => 'required',
+            'unit_id' => 'required',
             'tanggal_lahir' => 'required|date',
             'tempat_lahir' => 'required|string',
             'alamat' => 'required|string',

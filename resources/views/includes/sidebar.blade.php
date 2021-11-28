@@ -44,6 +44,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('unit.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-suitcase"></i>
+                        <p>
+                            Unit
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('karyawan.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
@@ -52,21 +60,46 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('surat.keputusan.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-database"></i>
                         <p>
                             Data SK
                         </p>
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-file-alt"></i>
                         <p>
-                            Berkas SK
+                            Berkas
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="display: none;">
+                        <li class="nav-item">
+                            <a href="{{ route('berkas.index') }}" class="nav-link">
+                                <i class="far fa-file-alt nav-icon"></i>
+                                <p>Berkas SK</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('arsip.index') }}" class="nav-link">
+                                <i class="far fa-file-alt nav-icon"></i>
+                                <p>Arsip</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>
+                            Laporan
                         </p>
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">

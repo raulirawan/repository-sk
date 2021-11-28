@@ -93,6 +93,23 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Unit</label>
+                                                <div class="col-sm-8">
+                                                    <select name="unit_id" id="unit_id"
+                                                        class="form-control @error('unit_id') is-invalid @enderror">
+                                                        <option value="{{ $item->unit_id }}">
+                                                            {{ $item->unit->name }}</option>
+                                                        @foreach ($unit as $unt)
+                                                            <option value="{{ $unt->id }}">
+                                                                {{ $unt->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Masukan Unit Karyawan
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-3 col-form-label">Tanggal
                                                     Lahir</label>
                                                 <div class="col-sm-8">
@@ -142,8 +159,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <img src="{{ $item->profile_photo_url == null ? url('img/people.jpg') : Storage::url($item->profile_photo_url) }}" alt=""
-                                                style="max-width: 200px">
+                                            <img src="{{ $item->profile_photo_url == null ? url('img/people.jpg') : Storage::url($item->profile_photo_url) }}"
+                                                alt="" style="max-width: 200px">
                                         </div>
                                     </div>
                                 </div>

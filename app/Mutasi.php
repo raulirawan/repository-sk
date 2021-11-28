@@ -8,7 +8,7 @@ class Mutasi extends Model
 {
     protected $table = 'mutasi';
     protected $fillable = [
-        'user_id', 'group_id', 'status', 'keterangan',
+        'user_id', 'unit_lama', 'unit_baru', 'status', 'keterangan',
     ];
 
     public function user()
@@ -16,8 +16,13 @@ class Mutasi extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function group()
+    public function unit_lamaa()
     {
-        return $this->belongsTo(Group::class, 'group_id', 'id');
+        return $this->hasOne(Unit::class, 'id', 'unit_lama');
+    }
+
+    public function unit_baruu()
+    {
+        return $this->hasOne(Unit::class, 'id', 'unit_baru');
     }
 }

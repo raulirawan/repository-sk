@@ -80,6 +80,15 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Unit</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="nip"
+                                                        class="form-control @error('nip') is-invalid @enderror"
+                                                        id="inputEmail3" placeholder="NULL"
+                                                        value="{{ $item->unit->name ?? '' }}" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-3 col-form-label">Tanggal
                                                     Lahir</label>
                                                 <div class="col-sm-8">

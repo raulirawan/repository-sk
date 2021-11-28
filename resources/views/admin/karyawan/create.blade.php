@@ -103,6 +103,22 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Unit</label>
+                                                <div class="col-sm-8">
+                                                    <select name="unit_id" id="unit_id"
+                                                        class="form-control @error('unit_id') is-invalid @enderror">
+                                                        <option value="">-- Pilih Jabatan --</option>
+                                                        @foreach ($unit as $unt)
+                                                            <option value="{{ $unt->id }}" @if (old('unit_id') == $unt->id) selected="selected" @endif>
+                                                                {{ $unt->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Masukan Unit Karyawan
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-3 col-form-label">Tanggal
                                                     Lahir</label>
                                                 <div class="col-sm-8">

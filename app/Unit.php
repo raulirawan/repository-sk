@@ -4,12 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Group extends Model
+class Unit extends Model
 {
-    protected $table = 'group';
+    protected $table = 'unit';
     protected $fillable = [
         'name',
     ];
-
-
 }

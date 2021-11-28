@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'jabatan_id', 'nip', 'tempat_lahir', 'alamat', 'roles', 'profile_photo_url','tanggal_lahir'
+        'name', 'email', 'password', 'jabatan_id', 'unit_id', 'nip', 'tempat_lahir', 'alamat', 'roles', 'profile_photo_url', 'tanggal_lahir'
     ];
 
     /**
@@ -45,5 +45,10 @@ class User extends Authenticatable
     public function jabatan()
     {
         return $this->hasOne(Jabatan::class, 'id', 'jabatan_id');
+    }
+
+    public function unit()
+    {
+        return $this->hasOne(Unit::class, 'id', 'unit_id');
     }
 }

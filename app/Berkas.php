@@ -8,7 +8,7 @@ class Berkas extends Model
 {
     protected $table = 'berkas';
     protected $fillable = [
-        'user_id', 'mutasi_id', 'nomor_berkas', 'nama_berkas', 'status_berkas'
+        'user_id', 'mutasi_id', 'nomor_berkas', 'status_berkas'
     ];
 
 
