@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use PDF;
 use App\Berkas;
+use iio\libmergepdf\Merger;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Response;
 
 class BerkasController extends Controller
 {
@@ -49,8 +52,25 @@ class BerkasController extends Controller
 
     public function pdf()
     {
-        $pdf = PDF::loadView('sk.surat-keputusan')->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
-        $pdf->setPaper('Legal');
-        return $pdf->stream('my.pdf', array('Attachment' => 0));
+        $m = new Merger();
+
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('sk.surat-keputusan')
+            ->setPaper('legal', 'portrait')
+            ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        $m->addRaw($pdf->output());
+
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('sk.lampiran')
+            ->setPaper('legal', 'landscape')
+            ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+        $m->addRaw($pdf->output());
+
+        // ubah nanti SK-NIP
+        $rand = mt_rand(0000, 9999);
+        $fileName = 'surat-sk/SK-' . $rand . '.pdf';
+        file_put_contents($fileName, $m->merge());
+
+        return redirect($fileName);
     }
 }
