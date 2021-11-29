@@ -1,4 +1,4 @@
-@extends('layouts.dashboard-admin')
+@extends('layouts.dashboard-user')
 
 @section('title', 'Halaman Berkas')
 
@@ -83,68 +83,27 @@
                                                         <span class="badge badge-success">DISETUJUI</span>
                                                     @endif
                                                 </td>
-                                                <td class="text-center">
-                                                    @if ($item->status_berkas == 0)
-                                                        <form action="{{ route('berkas.accept', $item->id) }}"
-                                                            style='float: left; padding-left: 5px;' class="d-block"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            <button type="submit"
-                                                                style="border: none; background: transparent"
-                                                                onclick="return confirm('Yakin ?')"><i
-                                                                    class="fa fa-check"></i></button>
-                                                        </form>
-                                                        {{-- <form action="{{ route('berkas.reject', $item->id) }}"
-                                                            style='float: left; padding-left: 5px;' class="d-block"
-                                                            method="POST">
-                                                            @csrf
-                                                            @method('PUT') --}}
-                                                        <button type="button" data-toggle="modal"
-                                                            data-target="#exampleModal"
-                                                            style="float: left; padding-left: 5px; border: none; background: transparent"><i
-                                                                class="fa fa-times"></i></button>
-                                                        {{-- </form> --}}
-                                                    @else
-                                                        <a href="{{ route('berkas.detail', $item->id) }}"
+                                                @if ($item->status_berkas == 2)
+                                                    <td class="text-center align-middle">
+                                                        {{-- <a href="" class="btn btn-primary btn-xs"
+                                                        style='float: left; margin-right: 10px'>Print <i
+                                                            class="fa fa-print"></i></a> --}}
+                                                        <a href="{{ route('berkas.user.pdf', $item->id) }}"
+                                                            class="btn btn-primary btn-xs" target="_blank"
+                                                            style='float: left; margin-right: 10px'>Print / PDF <i
+                                                                class="fa fa-print"></i></a>
+                                                    </td>
+                                                @else
+                                                    <td class="text-center">
+                                                        <a href="{{ route('berkas.detail.user', $item->id) }}"
                                                             class="btn btn-info btn-xs"><i class="fa fa-eye">
                                                                 Detail</i></a>
-                                                    @endif
-                                                </td>
+
+                                                    </td>
+                                                @endif
+
                                             </tr>
-                                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Modal title
-                                                            </h5>
-                                                            <button type="button" class="close"
-                                                                data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form action="{{ route('berkas.reject', $item->id) }}"
-                                                                class="d-block" method="POST">
-                                                                @csrf
-                                                                @method('PUT')
 
-                                                                <div class="form-group">
-                                                                    <label for="exampleInputEmail1">Keterangan</label>
-                                                                    <textarea name="keterangan" id="keterangan"
-                                                                        class="form-control" required
-                                                                        placeholder="Keterangan"></textarea>
-                                                                </div>
-
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-primary">Simpan</button>
-                                                        </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         @endforeach
 
                                     </tbody>

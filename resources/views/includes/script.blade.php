@@ -1,4 +1,3 @@
-
 <!-- jQuery -->
 <script src="{{ url('assets/plugins/jquery/jquery.js') }}"></script>
 <script src="{{ url('assets/plugins/jquery/jquery.minn.js') }}"></script>
@@ -16,7 +15,12 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ url('assets/dist/js/demo.js') }}"></script>
 <script src="{{ url('assets/jquery.datetimepicker.full.js') }}"></script>
-
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{ asset('/sw.js') }}"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function(reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
 <!-- Page specific script -->

@@ -64,8 +64,7 @@
                                         <tr>
                                             <th style="width: 15%">NIP</th>
                                             <th style="width: 25%">Nama</th>
-                                            <th style="width: 10%">Jabatan</th>
-                                            <th style="width: 10px">Unit Lama</th>
+                                            <th style="width: 10px">Jabatan Baru</th>
                                             <th style="width: 10px">Unit Baru</th>
                                             <th style="width: 15%">Status</th>
 
@@ -75,12 +74,11 @@
 
                                         @foreach ($mutasi as $item)
                                             <tr>
-                                                <td>{{ $item->user->nip ?? ''}}</td>
-                                                <td>{{ $item->user->name ?? ''}}</td>
-                                                <td>{{ $item->user->jabatan->name ?? ''}}</td>
-                                                <td>{{ $item->unit_lamaa->name ?? ''}}</td>
-                                                <td>{{ $item->unit_baruu->name ?? ''}}</td>
-                                                <td>{{ $item->status ?? ''}}</td>
+                                                <td>{{ $item->user->nip ?? '' }}</td>
+                                                <td>{{ $item->user->name ?? '' }}</td>
+                                                <td>{{ $item->jabatan->name ?? '' }}</td>
+                                                <td>{{ $item->unit_baruu->name ?? '' }}</td>
+                                                <td>{{ $item->status ?? '' }}</td>
                                                 {{-- <td class="center">
                                                     <img src="{{ $item->profile_photo_url == null ? url('img/people.jpg') : Storage::url($item->profile_photo_url) }}"
                                                         style="max-width: 50px">

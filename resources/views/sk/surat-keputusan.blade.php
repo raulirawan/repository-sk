@@ -35,13 +35,15 @@
             <tr style="height: 18px;">
                 <td style="width: 45.9939%; height: 18px; text-align: right;"><strong>NOMOR</strong></td>
                 <td style="width: 6.14864%; height: 18px; text-align: center;"><strong>:</strong></td>
-                <td style="width: 47.8574%; height: 18px; text-align: left;"><strong>065/EA.P-6a/2021</strong></td>
+                <td style="width: 47.8574%; height: 18px; text-align: left;">
+                    <strong>{{ $berkas->nomor_berkas }}</strong></td>
             </tr>
             <tr style="height: 18px;">
                 <td style="width: 99.9999%; text-align: center; height: 18px;" colspan="3"><strong>TENTANG</strong></td>
             </tr>
             <tr style="height: 18px;">
-                <td style="width: 99.9999%; text-align: center; height: 18px;" colspan="3"><strong>MUTASI DAN PENEMPATAN
+                <td style="width: 99.9999%; text-align: center; height: 18px;" colspan="3">
+                    <strong>{{ Str::upper($berkas->mutasi->status) }} DAN PENEMPATAN
                         KARYAWAN</strong></td>
             </tr>
             <tr style="height: 18px;">
@@ -150,7 +152,8 @@
             <tr style="height: 18px;">
                 <td style="width: 10.2423%; vertical-align: top; height: 18px;"><strong>&nbsp;</strong></td>
                 <td style="width: 2.74605%; vertical-align: top; text-align: justify; height: 18px;">
-                    <strong>&nbsp;</strong></td>
+                    <strong>&nbsp;</strong>
+                </td>
                 <td style="width: 86.9017%; text-align: justify; height: 18px;">- Unit kerja terkait</td>
             </tr>
         </tbody>
@@ -168,7 +171,7 @@
                 <td style="width: 45.5039%; height: 18px;">&nbsp;</td>
                 <td style="width: 21.2791%; height: 18px;">Pada Tanggal</td>
                 <td style="width: 2.4999%; height: 18px;">:</td>
-                <td style="width: 30.717%; height: 18px;">&nbsp;5 April 2021</td>
+                <td style="width: 30.717%; height: 18px;">&nbsp;{{ $berkas->updated_at->format('d F Y') }}</td>
             </tr>
             <tr style="height: 18px;">
                 <td style="width: 45.5039%; height: 18px;">&nbsp;</td>

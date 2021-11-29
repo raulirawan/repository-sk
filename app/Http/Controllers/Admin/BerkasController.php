@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use PDF;
+use App\User;
 use App\Berkas;
 use iio\libmergepdf\Merger;
 use Illuminate\Http\Request;
@@ -27,7 +28,15 @@ class BerkasController extends Controller
         $berkas = Berkas::findOrFail($id);
 
         $berkas->status_berkas = 2;
+        $berkas->keterangan = 'DISETUJUI';
         $result = $berkas->save();
+
+        // update data user
+
+        $karyawan = User::findOrFail($berkas->user_id);
+        $karyawan->unit_id = $berkas->mutasi->unit_baru;
+        $karyawan->jabatan_id = $berkas->mutasi->jabatan_id;
+        $karyawan->save();
 
         if ($result != null) {
             return redirect()->route('berkas.index')->with('success', 'Data Berhasil di Update!');
@@ -36,11 +45,12 @@ class BerkasController extends Controller
         }
     }
 
-    public function reject($id)
+    public function reject(Request $request, $id)
     {
         $berkas = Berkas::findOrFail($id);
 
         $berkas->status_berkas = 1;
+        $berkas->keterangan = $request->keterangan;
         $result = $berkas->save();
 
         if ($result != null) {
@@ -50,27 +60,38 @@ class BerkasController extends Controller
         }
     }
 
-    public function pdf()
+    public function pdf($id)
     {
+
+        $berkas = Berkas::findOrFail($id);
+
         $m = new Merger();
 
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadView('sk.surat-keputusan')
+        $pdf->loadView('sk.surat-keputusan', compact('berkas'))
             ->setPaper('legal', 'portrait')
             ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
         $m->addRaw($pdf->output());
 
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadView('sk.lampiran')
+        $pdf->loadView('sk.lampiran', compact('berkas'))
             ->setPaper('legal', 'landscape')
             ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
         $m->addRaw($pdf->output());
 
         // ubah nanti SK-NIP
-        $rand = mt_rand(0000, 9999);
-        $fileName = 'surat-sk/SK-' . $rand . '.pdf';
+        $nama = $berkas->user->name . '-';
+        $date = $berkas->updated_at->format('d F Y');
+        $fileName = 'surat-sk/SK-' . $nama . $date . '.pdf';
         file_put_contents($fileName, $m->merge());
 
         return redirect($fileName);
+    }
+
+    public function detail($id)
+    {
+        $item = Berkas::findOrFail($id);
+
+        return view('admin.berkas.show', compact('item'));
     }
 }

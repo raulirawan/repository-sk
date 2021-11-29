@@ -54,7 +54,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Reset Password</title>
-
+    <meta name="theme-color" content="#6777ef" />
+    <link rel="apple-touch-icon" href="{{ asset('img/jasamarga.png') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
     @include('includes.style')
 </head>
 
@@ -74,7 +76,8 @@
                 <form method="POST" action="{{ route('password.email') }}">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email">
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                            placeholder="Email">
                         @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

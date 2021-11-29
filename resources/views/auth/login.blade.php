@@ -80,7 +80,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Halaman Login</title>
-
+    <meta name="theme-color" content="#6777ef" />
+    <link rel="apple-touch-icon" href="{{ asset('img/jasamarga.png') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
     <!-- Google Font: Source Sans Pro -->
     @include('includes.style')
 </head>
@@ -98,7 +100,8 @@
                 <form action="{{ route('login') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email">
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                            placeholder="Email">
                         @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -111,7 +114,8 @@
                         </div> --}}
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password">
+                        <input type="password" name="password"
+                            class="form-control @error('password') is-invalid @enderror" placeholder="Password">
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -146,6 +150,7 @@
 
     <!-- jQuery -->
     @include('includes.script')
+
 </body>
 
 </html>

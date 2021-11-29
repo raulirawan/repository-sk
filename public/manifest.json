@@ -1,0 +1,17 @@
+{
+    "name": "Surat Keputusan Karyawan Jasa Marga",
+    "short_name": "SPJM",
+    "start_url": "/",
+    "background_color": "#6777ef",
+    "description": "Surat Keputusan Karyawan Jasa Marga",
+    "display": "fullscreen",
+    "theme_color": "#6777ef",
+    "icons": [
+        {
+            "src": "img/jasamarga.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

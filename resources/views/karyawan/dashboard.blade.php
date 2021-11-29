@@ -1,4 +1,4 @@
-@extends('layouts.dashboard-admin')
+@extends('layouts.dashboard-user')
 
 @section('title', 'Dashboard Admin')
 
@@ -15,11 +15,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        @if (Auth::user()->roles == 'ADMIN')
-                            <h1>Admin Human Capital Services Group</h1>
-                        @else
-                            <h1>Pimpinan Human Capital Services Group</h1>
-                        @endif
+                        <h1>Halo {{ Str::ucfirst(Auth::user()->name) }}</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">

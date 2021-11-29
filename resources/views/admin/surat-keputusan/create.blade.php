@@ -56,7 +56,12 @@
                                                         class="form-control @error('user_id') is-invalid @enderror">
                                                         <option value="">-- Pilih Karyawan --</option>
                                                         @foreach ($karyawan as $kar)
-                                                            <option value="{{ $kar->id }}" @if (old('user_id') == $kar->id) selected="selected" @endif>
+                                                            <option value="{{ $kar->id }}"
+                                                                data-unit_lama="{{ $kar->unit->name }}"
+                                                                data-jabatan_lama="{{ $kar->jabatan->name }}"
+                                                                data-unit_id="{{ $kar->unit_id }}"
+                                                                data-jabatan_id="{{ $kar->jabatan_id }}"
+                                                                @if (old('user_id') == $kar->id) selected="selected" @endif>
                                                                 {{ $kar->name }}</option>
                                                         @endforeach
                                                     </select>
@@ -66,18 +71,60 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Jabatan
+                                                    Lama</label>
+                                                <div class="col-sm-8">
+                                                    {{-- <select name="jabatan_id_lama" id="jabatan_id_lama"
+                                                        class="form-control @error('jabatan_id_lama') is-invalid @enderror">
+                                                        <option value="">-- Pilih Jabatan Lama --</option>
+                                                        @foreach ($jabatan as $jabs)
+                                                            <option value="{{ $jabs->id }}" @if (old('jabatan_id_lama') == $jabs->id) selected="selected" @endif>
+                                                                {{ $jabs->name }}</option>
+                                                        @endforeach
+                                                    </select> --}}
+                                                    <input type="hidden" name="jabatan_id_lama" id="jabatan_id">
+                                                    <input type="text" id="jabatan_lama" class="form-control" readonly
+                                                        placeholder="">
+                                                    <div class="invalid-feedback">
+                                                        Silahkan Pilih Jabatan Lama Karyawan
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-3 col-form-label">Unit Lama</label>
                                                 <div class="col-sm-8">
-                                                    <select name="unit_lama" id="unit_lama"
+                                                    {{-- <select name="unit_lama" id="unit_lama"
                                                         class="form-control @error('unit_lama') is-invalid @enderror">
                                                         <option value="">-- Pilih Unit Lama --</option>
                                                         @foreach ($unit as $unit_lama)
                                                             <option value="{{ $unit_lama->id }}" @if (old('unit_lama') == $unit_lama->id) selected="selected" @endif>
                                                                 {{ $unit_lama->name }}</option>
                                                         @endforeach
-                                                    </select>
+                                                    </select> --}}
+                                                    <input type="hidden" name="unit_lama" id="unit_id">
+
+                                                    <input type="text" id="unit_lama"
+                                                        class="form-control" readonly placeholder="">
+
                                                     <div class="invalid-feedback">
                                                         Silahkan Pilih Unit Lama Karyawan
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Jabatan
+                                                    Baru</label>
+                                                <div class="col-sm-8">
+                                                    <select name="jabatan_id" id="jabatan_id"
+                                                        class="form-control @error('jabatan_id') is-invalid @enderror">
+                                                        <option value="">-- Pilih Jabatan Baru --</option>
+                                                        @foreach ($jabatan as $jabs)
+                                                            <option value="{{ $jabs->id }}" @if (old('jabatan_id') == $jabs->id) selected="selected" @endif>
+                                                                {{ $jabs->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <div class="invalid-feedback">
+                                                        Silahkan Pilih Jabatan Baru Karyawan
                                                     </div>
                                                 </div>
                                             </div>
@@ -88,7 +135,8 @@
                                                         class="form-control @error('unit_baru') is-invalid @enderror">
                                                         <option value="">-- Pilih Unit Baru --</option>
                                                         @foreach ($unit as $unit_baru)
-                                                            <option value="{{ $unit_baru->id }}" @if (old('unit_baru') == $unit_baru->id) selected="selected" @endif>
+                                                            <option value="{{ $unit_baru->id }}"
+                                                                @if (old('unit_baru') == $unit_baru->id) selected="selected" @endif>
                                                                 {{ $unit_baru->name }}</option>
                                                         @endforeach
                                                     </select>
@@ -97,6 +145,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="form-group row">
                                                 <label for="inputEmail3" class="col-sm-3 col-form-label">Status</label>
                                                 <div class="col-sm-8">
@@ -106,23 +155,12 @@
                                                         <option value="Penugasan Sementara">Penugasan Sementara</option>
                                                         <option value="Rotasi">Rotasi</option>
                                                         <option value="Promosi">Promosi</option>
+                                                        <option value="Mutasi">Mutasi</option>
                                                         <option value="Penempatan Karyawan Baru">Penempatan Karyawan Baru
                                                         </option>
                                                     </select>
                                                     <div class="invalid-feedback">
                                                         Silahkan Pilih Status
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Keterangan</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" name="keterangan"
-                                                        class="form-control @error('keterangan') is-invalid @enderror"
-                                                        id="inputEmail3" placeholder="Ketarangan"
-                                                        value="{{ old('keterangan') }}">
-                                                    <div class="invalid-feedback">
-                                                        Masukan Keterangan
                                                     </div>
                                                 </div>
                                             </div>
@@ -160,5 +198,29 @@
             alert(msg);
         }
     </script>
-s
+    <script>
+        $(document).ready(function() {
+            document.getElementById('user_id').addEventListener('change', function(e) {
+                e.preventDefault();
+
+                var unit_lama = $(this).find(':selected').data('unit_lama');
+                var jabatan_lama = $(this).find(':selected').data('jabatan_lama');
+
+                var unit_id = $(this).find(':selected').data('unit_id');
+                var jabatan_id = $(this).find(':selected').data('jabatan_id');
+
+                $('#unit_id').val(unit_id);
+                $('#jabatan_id').val(jabatan_id);
+
+                document.getElementById("jabatan_lama").placeholder = jabatan_lama;
+                document.getElementById("unit_lama").placeholder = unit_lama;
+
+
+
+            });
+
+
+        });
+    </script>
+
 @endpush

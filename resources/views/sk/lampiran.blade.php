@@ -40,12 +40,13 @@
             <tr style="height: 18px;">
                 <td style="width: 44.8327%; height: 18px; text-align: right;"><strong>NOMOR</strong></td>
                 <td style="width: 4.11672%; height: 18px; text-align: center;"><strong>:</strong></td>
-                <td style="width: 51.0505%; height: 18px;"><strong>065/EA.P-6a/2021</strong></td>
+                <td style="width: 51.0505%; height: 18px;"><strong>{{ $berkas->nomor_berkas }}</strong></td>
             </tr>
             <tr style="height: 18px;">
                 <td style="width: 44.8327%; height: 18px; text-align: right;"><strong>TANGGAL</strong></td>
                 <td style="width: 4.11672%; height: 18px; text-align: center;"><strong>:</strong></td>
-                <td style="width: 51.0505%; height: 18px;"><strong>5 April 2021</strong></td>
+                <td style="width: 51.0505%; height: 18px;"><strong>{{ $berkas->updated_at->format('d F Y') }}</strong>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -70,14 +71,16 @@
                     <strong>1.</strong>
                 </td>
                 <td style="width: 43.2945%; text-align: center; vertical-align: middle; height: 137px;">
-                    <p style="text-align: left;"><strong>&nbsp;Muhammad Irfan
-                            S.Psi.</strong><br /><strong>&nbsp;1048</strong></p>
+                    <p style="text-align: left;"><strong>&nbsp;{{ $berkas->user->name }}
+                        </strong><br /><strong>&nbsp;{{ $berkas->user->nip }}</strong></p>
                 </td>
                 <td style="width: 25%; text-align: center; height: 137px;">
-                    <p><strong>Strategic Transformation Officer<br />Strategic Transformation Officer</strong></p>
+                    <p><strong>{{ $berkas->mutasi->jabatan_lamaa->name }}<br />{{ $berkas->mutasi->unit_lamaa->name }}</strong>
+                    </p>
                 </td>
-                <td style="width: 25%; text-align: center; height: 137px;"><strong>Senior Specialist<br />PT Jasamarga
-                        Tollroad Operator</strong></td>
+                <td style="width: 25%; text-align: center; height: 137px;">
+                    <strong>{{ $berkas->user->jabatan->name }}<br />{{ $berkas->user->unit->name }}</strong>
+                </td>
             </tr>
         </tbody>
     </table>

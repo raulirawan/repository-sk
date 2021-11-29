@@ -71,7 +71,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Reset Password</title>
-
+    <meta name="theme-color" content="#6777ef" />
+    <link rel="apple-touch-icon" href="{{ asset('img/jasamarga.png') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
     @include('includes.style')
 </head>
 
@@ -92,7 +94,8 @@
                     @csrf
                     <input type="hidden" name="token" value="{{ $token }}">
                     <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                            value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus
                             placeholder="Email">
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -101,7 +104,9 @@
                         @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password Baru">
+                        <input id="password" type="password"
+                            class="form-control @error('password') is-invalid @enderror" name="password" required
+                            autocomplete="new-password" placeholder="Password Baru">
 
                         @error('password')
                             <span class="invalid-feedback" role="alert">
@@ -110,7 +115,8 @@
                         @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Ulangi Password Baru">
+                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                            required autocomplete="new-password" placeholder="Ulangi Password Baru">
                     </div>
                     <div class="row">
                         <div class="col-12">

@@ -59,7 +59,7 @@
                                         <tr>
                                             <th style="width: 15%">No Berkas</th>
                                             <th style="width: 20%">Nama Karyawan</th>
-                                            <th style="width: 15%">Unit Lama</th>
+                                            <th style="width: 15%">Jabatan Baru</th>
                                             <th style="width: 15%">Unit Baru</th>
                                             <th style="width: 10%">Status</th>
                                             <th style="width: 12%">Opsi</th>
@@ -72,7 +72,7 @@
                                             <tr>
                                                 <td>{{ $item->nomor_berkas ?? '' }}</td>
                                                 <td>{{ $item->user->name ?? '' }}</td>
-                                                <td>{{ $item->mutasi->unit_lamaa->name ?? '' }}</td>
+                                                <td>{{ $item->mutasi->jabatan->name ?? '' }}</td>
                                                 <td>{{ $item->mutasi->unit_baruu->name ?? '' }}</td>
                                                 <td>
                                                     @if ($item->status_berkas == 0)
@@ -84,12 +84,13 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <a href="#" class="btn btn-primary btn-xs"
+                                                    {{-- <a href="" class="btn btn-primary btn-xs"
                                                         style='float: left; margin-right: 10px'>Print <i
+                                                            class="fa fa-print"></i></a> --}}
+                                                    <a href="{{ route('berkas.pdf', $item->id) }}"
+                                                        class="btn btn-primary btn-xs"
+                                                        style='float: left; margin-right: 10px'>Print / PDF <i
                                                             class="fa fa-print"></i></a>
-                                                    <a href="#" class="btn btn-primary btn-xs"
-                                                        style='float: left; margin-right: 10px'>PDF <i
-                                                            class="fa fa-file-alt"></i></a>
                                                 </td>
                                             </tr>
                                         @endforeach

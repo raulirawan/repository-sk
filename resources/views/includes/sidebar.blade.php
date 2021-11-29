@@ -35,6 +35,7 @@
                         </p>
                     </a>
                 </li>
+                @if(Auth::user()->roles == "ADMIN")
                 <li class="nav-item">
                     <a href="{{ route('jabatan.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-suitcase"></i>
@@ -67,32 +68,38 @@
                         </p>
                     </a>
                 </li>
+                @endif
 
+                @if (Auth::user()->roles == 'ADMIN' || Auth::user()->roles == 'PIMPINAN')
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-file-alt"></i>
+                            <p>
+                                Berkas
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview" style="display: none;">
+                            @if(Auth::user()->roles == "PIMPINAN")
+                            <li class="nav-item">
+                                <a href="{{ route('berkas.index') }}" class="nav-link">
+                                    <i class="far fa-file-alt nav-icon"></i>
+                                    <p>Berkas SK</p>
+                                </a>
+                            </li>
+                            @else
+                            @endif
+                            <li class="nav-item">
+                                <a href="{{ route('arsip.index') }}" class="nav-link">
+                                    <i class="far fa-file-alt nav-icon"></i>
+                                    <p>Arsip</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-file-alt"></i>
-                        <p>
-                            Berkas
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview" style="display: none;">
-                        <li class="nav-item">
-                            <a href="{{ route('berkas.index') }}" class="nav-link">
-                                <i class="far fa-file-alt nav-icon"></i>
-                                <p>Berkas SK</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('arsip.index') }}" class="nav-link">
-                                <i class="far fa-file-alt nav-icon"></i>
-                                <p>Arsip</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('laporan.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>
                             Laporan
