@@ -88,36 +88,34 @@
     <table style="width: 100%; border-collapse: collapse; height: 144px;" border="0">
         <tbody>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; height: 18px;">&nbsp;</td>
+                <td style="width: 45.5039%; height: 18px; text-align: center;">Pastikan Sesuai Dengan Aslinya,</td>
                 <td style="height: 18px; width: 54.496%; text-align: center;" colspan="3">Direksi PT Jasa Marga
                     (Persero) Tbk</td>
             </tr>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; height: 18px;">&nbsp;</td>
+                <td style="width: 45.5039%; height: 90px; text-align: center;" rowspan="5"><img
+                        style="display: block; margin-left: auto; margin-right: auto;"
+                        src="https://i.ibb.co/yXSJbk4/ttd.png" alt="" width="334" height="100" /></td>
                 <td style="height: 18px; width: 54.496%; text-align: center;" colspan="3">&nbsp;</td>
             </tr>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; height: 18px;">&nbsp;</td>
                 <td style="height: 18px; text-align: center;" colspan="3">&nbsp;</td>
             </tr>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; height: 18px;">&nbsp;</td>
                 <td style="height: 18px; text-align: center;" colspan="3">&nbsp;</td>
             </tr>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; height: 18px;">&nbsp;</td>
                 <td style="height: 18px; text-align: center;" colspan="3">&nbsp;</td>
             </tr>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; height: 18px;">&nbsp;</td>
                 <td style="width: 54.496%; height: 18px; text-align: center;" colspan="3">&nbsp;</td>
             </tr>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; height: 18px;">&nbsp;</td>
+                <td style="width: 45.5039%; height: 18px; text-align: center;">Nurmaningsih S.Sos.</td>
                 <td style="height: 18px; width: 54.496%; text-align: center;" colspan="3">Enkky Santoso A.W</td>
             </tr>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; text-align: center; height: 18px;">&nbsp;</td>
+                <td style="width: 45.5039%; height: 18px; text-align: center;">Human Capital Services Group Head</td>
                 <td style="width: 54.496%; height: 18px; text-align: center;" colspan="3">Direktur Human Capital &amp;
                     Transformasi</td>
             </tr>

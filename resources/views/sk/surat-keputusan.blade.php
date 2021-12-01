@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <p><img class="fr-fic fr-dii" style="max-width: 200px;" src="{{ url('img/logo.png') }}" /></p>
+    <p><img class="fr-fic fr-dii" style="max-width: 400px;" src="https://i.ibb.co/sRmkM1s/logo.png" /></p>
     <table style="height: 106px; width: 100%; border-collapse: collapse;" border="0">
         <tbody>
             <tr style="height: 16px;">
@@ -36,7 +36,8 @@
                 <td style="width: 45.9939%; height: 18px; text-align: right;"><strong>NOMOR</strong></td>
                 <td style="width: 6.14864%; height: 18px; text-align: center;"><strong>:</strong></td>
                 <td style="width: 47.8574%; height: 18px; text-align: left;">
-                    <strong>{{ $berkas->nomor_berkas }}</strong></td>
+                    <strong>{{ $berkas->nomor_berkas }}</strong>
+                </td>
             </tr>
             <tr style="height: 18px;">
                 <td style="width: 99.9999%; text-align: center; height: 18px;" colspan="3"><strong>TENTANG</strong></td>
@@ -44,7 +45,8 @@
             <tr style="height: 18px;">
                 <td style="width: 99.9999%; text-align: center; height: 18px;" colspan="3">
                     <strong>{{ Str::upper($berkas->mutasi->status) }} DAN PENEMPATAN
-                        KARYAWAN</strong></td>
+                        KARYAWAN</strong>
+                </td>
             </tr>
             <tr style="height: 18px;">
                 <td style="width: 99.9999%; text-align: center; height: 18px;" colspan="3"><strong>DIREKSI PT JASA MARGA
@@ -101,7 +103,7 @@
     <p style="text-align: center;"><strong>MEMUTUSKAN</strong></p>
     <table style="height: 210px; width: 100%; border-collapse: collapse;" border="0">
         <tbody>
-            <tr style="height: 100px;">
+            <tr>
                 <td style="width: 10.2423%; height: 66px; vertical-align: top;"><strong>Menetapkan</strong></td>
                 <td style="width: 2.74605%; vertical-align: top; height: 66px;"><strong>:</strong></td>
                 <td style="width: 86.9017%; height: 66px;">&nbsp;</td>
@@ -112,7 +114,7 @@
                 </td>
                 <td style="width: 86.9017%; height: 18px; text-align: justify;">Karyawan yang nama dan jabatannya
                     sebagaimana tersebut dalam kolom 2 dan 3 ditetapkan dan ditempatkan ke dalam jabatan baru
-                    sebagaimana tercantum dalam kolom 5 lampiran Keputusan ini</td>
+                    sebagaimana tercantum dalam kolom 4 lampiran Keputusan ini</td>
             </tr>
             <tr style="height: 36px;">
                 <td style="width: 10.2423%; vertical-align: top; height: 36px;"><strong>Kedua</strong></td>
@@ -159,50 +161,45 @@
         </tbody>
     </table>
     <p>&nbsp;</p>
-    <table style="width: 100%; border-collapse: collapse; height: 126px;" border="0">
+    <table style="width: 100%; border-collapse: collapse; height: 172px;" border="0">
         <tbody>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; height: 18px;">&nbsp;</td>
+                <td style="width: 45.5039%; height: 18px;">Petikan Sesuai dengan aslinya,</td>
                 <td style="width: 21.2791%; height: 18px;">Ditetapkan di</td>
                 <td style="width: 2.4999%; height: 18px;">:</td>
                 <td style="width: 30.717%; height: 18px;">&nbsp;Jakarta</td>
             </tr>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; height: 18px;">&nbsp;</td>
+                <td style="width: 45.5039%; height: 82px;" rowspan="7"><img src="https://i.ibb.co/yXSJbk4/ttd.png"
+                        alt="" width="334" height="100" /></td>
                 <td style="width: 21.2791%; height: 18px;">Pada Tanggal</td>
                 <td style="width: 2.4999%; height: 18px;">:</td>
                 <td style="width: 30.717%; height: 18px;">&nbsp;{{ $berkas->updated_at->format('d F Y') }}</td>
             </tr>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; height: 18px;">&nbsp;</td>
-                <td style="height: 18px; width: 54.496%;" colspan="3">Direksi PT Jasa Marga (Persero) Tbk</td>
+                <td style="height: 10px; width: 54.496%;" colspan="3">Direksi PT Jasa Marga (Persero) Tbk</td>
             </tr>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; height: 18px;">&nbsp;</td>
                 <td style="height: 18px; width: 54.496%;" colspan="3">&nbsp;</td>
             </tr>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; height: 18px;">&nbsp;</td>
                 <td style="height: 18px;" colspan="3">&nbsp;</td>
             </tr>
-            <tr>
-                <td style="width: 45.5039%;">&nbsp;</td>
-                <td colspan="3">&nbsp;</td>
-            </tr>
-            <tr>
-                <td style="width: 45.5039%;">&nbsp;</td>
-                <td colspan="3">&nbsp;</td>
-            </tr>
-            <tr>
-                <td style="width: 45.5039%;">&nbsp;</td>
-                <td style="width: 54.496%;" colspan="3">&nbsp;</td>
+            <tr style="height: 18px;">
+                <td style="height: 18px;" colspan="3">&nbsp;</td>
             </tr>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; height: 18px;">&nbsp;</td>
+                <td style="height: 18px; text-align: center;" colspan="3">&nbsp;</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td style="width: 54.496%; height: 18px;" colspan="3">&nbsp;</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td style="width: 45.5039%; height: 18px; text-align: center;">Nurmaningsih S.Sos.</td>
                 <td style="height: 18px; text-align: center; width: 54.496%;" colspan="3">Enkky Santoso A.W</td>
             </tr>
             <tr style="height: 18px;">
-                <td style="width: 45.5039%; text-align: center; height: 18px;">&nbsp;</td>
+                <td style="width: 45.5039%; text-align: center; height: 18px;">Human Capital Services Group Head</td>
                 <td style="width: 54.496%; text-align: center; height: 18px;" colspan="3">Direktur Human Capital &amp;
                     Transformasi</td>
             </tr>

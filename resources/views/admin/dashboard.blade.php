@@ -21,11 +21,11 @@
                             <h1>Pimpinan Human Capital Services Group</h1>
                         @endif
                     </div>
-                    <div class="col-sm-6">
+                    {{-- <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <div class="text-muted">Data Statistik di Bawah Ini Merupakan Data Pada Tanggal</div>
                         </ol>
-                    </div>
+                    </div> --}}
                 </div>
             </div><!-- /.container-fluid -->
         </section>

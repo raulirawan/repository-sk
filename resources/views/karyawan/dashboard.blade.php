@@ -17,11 +17,11 @@
                     <div class="col-sm-6">
                         <h1>Halo {{ Str::ucfirst(Auth::user()->name) }}</h1>
                     </div>
-                    <div class="col-sm-6">
+                    {{-- <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <div class="text-muted">Data Statistik di Bawah Ini Merupakan Data Pada Tanggal</div>
                         </ol>
-                    </div>
+                    </div> --}}
                 </div>
             </div><!-- /.container-fluid -->
         </section>
