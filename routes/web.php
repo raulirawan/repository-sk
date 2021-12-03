@@ -44,6 +44,9 @@ Route::prefix('admin')
 
         Route::get('/laporan', 'LaporanController@index')->name('laporan.index');
         Route::post('/laporan', 'LaporanController@getLaporan')->name('laporan.get');
+
+        Route::get('/ganti-password', 'PasswordController@index')->name('ganti-password.admin.index');
+        Route::post('/ganti-password', 'PasswordController@updatePassword')->name('ganti-password.admin.update');
     });
 
 Route::middleware('auth')

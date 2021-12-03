@@ -88,7 +88,7 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview" style="display: none;">
-                            @if (Auth::user()->roles == 'PIMPINAN')
+                            @if (Auth::user()->roles == 'PIMPINAN' || Auth::user()->roles == 'ADMIN')
                                 <li class="nav-item">
                                     <a href="{{ route('berkas.index') }}"
                                         class="nav-link {{ request()->is('admin/berkas*') ? 'active' : '' }}">
@@ -114,6 +114,16 @@
                         <i class="nav-icon fas fa-book"></i>
                         <p>
                             Laporan
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('ganti-password.admin.index') }}"
+                        class="nav-link {{ request()->is('admin/ganti-password*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-key"></i>
+                        <p>
+                            Ganti Password
                         </p>
                     </a>
                 </li>
