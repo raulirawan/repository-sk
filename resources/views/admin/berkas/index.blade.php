@@ -84,7 +84,7 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-center">
-                                                    @if ($item->status_berkas == 0)
+                                                    @if ($item->status_berkas == 0 && Auth::user()->roles == 'PIMPINAN')
                                                         <form action="{{ route('berkas.accept', $item->id) }}"
                                                             style='float: left; padding-left: 5px;' class="d-block"
                                                             method="POST">
